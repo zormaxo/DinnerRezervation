@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>4963afda-51da-4474-a572-a57ed1ac7a64</UserSecretsId>
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\OutDinner.Application\OutDinner.Application.csproj" />
+    <ProjectReference Include="..\OutDinner.Contracts\OutDinner.Contracts.csproj" />
+    <ProjectReference Include="..\OutDinner.Infrastructure\OutDinner.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

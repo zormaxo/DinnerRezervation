@@ -1,8 +1,8 @@
-using DinnerRez.Application;
-using DinnerRez.Infrastructure;
+using OutDinner.Application;
+using OutDinner.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddApplication().AddInfrastructure();
+builder.Services.AddApplication().AddInfrastructure(builder.Configuration);
 builder.Services.AddControllers();
 
 var app = builder.Build();

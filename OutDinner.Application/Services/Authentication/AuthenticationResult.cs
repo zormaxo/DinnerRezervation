@@ -1,3 +1,3 @@
-﻿namespace DinnerRez.Application.Services.Authentication;
+﻿namespace OutDinner.Application.Services.Authentication;
 
 public record AuthenticationResult(Guid Id, string FirstName, string LastName, string Email, string Token);

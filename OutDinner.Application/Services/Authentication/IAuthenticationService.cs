@@ -1,4 +1,4 @@
-﻿namespace DinnerRez.Application.Services.Authentication;
+﻿namespace OutDinner.Application.Services.Authentication;
 
 public interface IAuthenticationService
 {

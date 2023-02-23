@@ -1,0 +1,5 @@
+DependenSee . ./dependencies.html -p
+
+dotnet user-secrets init --project .\OutDinner.Api
+dotnet user-secrets set --project .\OutDinner.Api "JwtSettings:Secret" "super-secret-key-from-user-secrets"
+dotnet user-secrets list --project .\OutDinner.Api

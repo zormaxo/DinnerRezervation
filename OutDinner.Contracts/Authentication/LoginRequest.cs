@@ -1,3 +1,3 @@
-﻿namespace DinnerRez.Contracts.Authentication;
+﻿namespace OutDinner.Contracts.Authentication;
 
 public record LoginRequest(string Email, string Password);

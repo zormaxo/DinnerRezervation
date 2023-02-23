@@ -1,8 +1,8 @@
-﻿using DinnerRez.Application.Services.Authentication;
-using DinnerRez.Contracts.Authentication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using OutDinner.Application.Services.Authentication;
+using OutDinner.Contracts.Authentication;
 
-namespace DinnerRez.Api.Controller;
+namespace OutDinner.Api.Controller;
 
 [ApiController]
 [Route("auth")]

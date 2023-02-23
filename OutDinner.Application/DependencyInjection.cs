@@ -1,7 +1,7 @@
-﻿using DinnerRez.Application.Services.Authentication;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using OutDinner.Application.Services.Authentication;
 
-namespace DinnerRez.Application;
+namespace OutDinner.Application;
 
 public static class DependencyInjection
 {
