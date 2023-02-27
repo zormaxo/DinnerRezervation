@@ -1,3 +1,5 @@
-﻿namespace OutDinner.Application.Services.Authentication;
+﻿using OutDinner.Domain.Entities;
 
-public record AuthenticationResult(Guid Id, string FirstName, string LastName, string Email, string Token);
+namespace OutDinner.Application.Services.Authentication;
+
+public record AuthenticationResult(User User, string Token);
