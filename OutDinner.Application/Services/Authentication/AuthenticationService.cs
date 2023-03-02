@@ -50,7 +50,6 @@ public class AuthenticationService : IAuthenticationService
         // 3. Create JWT token
         var token = _jwtTokenGenerator.GenerateToken(user);
 
-
         return new AuthenticationResult(user, token);
     }
 }
