@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using OutDinner.Api.Common.Errors;
 using OutDinner.Application;
 using OutDinner.Infrastructure;
 
