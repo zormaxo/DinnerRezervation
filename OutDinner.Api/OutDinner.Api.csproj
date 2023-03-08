@@ -6,6 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>4963afda-51da-4474-a572-a57ed1ac7a64</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+  </ItemGroup>
 	
   <ItemGroup>
     <ProjectReference Include="..\OutDinner.Application\OutDinner.Application.csproj" />

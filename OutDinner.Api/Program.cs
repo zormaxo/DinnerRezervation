@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using OutDinner.Api;
 using OutDinner.Api.Common.Errors;
 using OutDinner.Application;
 using OutDinner.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddApplication().AddInfrastructure(builder.Configuration);
-
-//builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
-builder.Services.AddControllers();
-
-builder.Services.AddSingleton<ProblemDetailsFactory, OutDinnerProblemDetailsFactory>();
+builder.Services.AddPresentation().AddApplication().AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 //app.UseMiddleware<ErrorHandlingMiddleware>();
