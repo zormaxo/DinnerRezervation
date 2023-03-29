@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using OutDinner.Api;
-using OutDinner.Api.Common.Errors;
 using OutDinner.Application;
 using OutDinner.Infrastructure;
 
@@ -11,5 +9,7 @@ var app = builder.Build();
 //app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 app.Run();

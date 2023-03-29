@@ -1,6 +1,7 @@
 ﻿using ErrorOr;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OutDinner.Application.Authentication.Commands.Register;
 using OutDinner.Application.Authentication.Common;
@@ -9,8 +10,8 @@ using OutDinner.Contracts.Authentication;
 
 namespace OutDinner.Api.Controllers;
 
-[ApiController]
 [Route("auth")]
+[AllowAnonymous]
 public class AuthenticationController : ApiController
 {
     private readonly ISender _mediator;
