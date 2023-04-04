@@ -1,11 +1,11 @@
-using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Common.ValueObjects;
-using BuberDinner.Domain.Dinners.ValueObjects;
-using BuberDinner.Domain.Hosts.ValueObjects;
-using BuberDinner.Domain.Menus.ValueObjects;
-using BuberDinner.Domain.Users.ValueObjects;
+using OutDinner.Domain.Common.Models;
+using OutDinner.Domain.Common.ValueObjects;
+using OutDinner.Domain.Dinners.ValueObjects;
+using OutDinner.Domain.Hosts.ValueObjects;
+using OutDinner.Domain.Menus.ValueObjects;
+using OutDinner.Domain.Users.ValueObjects;
 
-namespace BuberDinner.Domain.Hosts;
+namespace OutDinner.Domain.Hosts;
 
 public sealed class Host : AggregateRoot<HostId>
 {

@@ -1,25 +1,18 @@
-using BuberDinner.Domain.Common.Models;
+using OutDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Dinners.ValueObjects;
+namespace OutDinner.Domain.Dinners.ValueObjects;
 
 public sealed class DinnerId : ValueObject
 {
     public Guid Value { get; }
 
-    private DinnerId(Guid value)
-    {
-        Value = value;
-    }
+    private DinnerId(Guid value) { Value = value; }
 
-    public static DinnerId CreateUnique()
-    {
-        return new DinnerId(Guid.NewGuid());
-    }
+    public static DinnerId CreateUnique() { return new DinnerId(Guid.NewGuid()); }
 
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
+    public override IEnumerable<object> GetEqualityComponents() { yield return Value; }
 
-    private DinnerId() { }
+    private DinnerId()
+    {
+    }
 }

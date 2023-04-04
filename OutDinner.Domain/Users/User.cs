@@ -1,15 +1,20 @@
-using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Users.ValueObjects;
+using OutDinner.Domain.Common.Models;
+using OutDinner.Domain.Users.ValueObjects;
 
-namespace BuberDinner.Domain.Users;
+namespace OutDinner.Domain.Users;
 
 public sealed class User : AggregateRoot<UserId>
 {
     public string FirstName { get; private set; }
+
     public string LastName { get; private set; }
+
     public string Email { get; private set; }
+
     public string Password { get; private set; }
+
     public DateTime CreatedDateTime { get; private set; }
+
     public DateTime UpdatedDateTime { get; private set; }
 
     private User(
@@ -19,8 +24,7 @@ public sealed class User : AggregateRoot<UserId>
         string email,
         string password,
         DateTime createdDateTime,
-        DateTime updatedDateTime)
-        : base(id)
+        DateTime updatedDateTime) : base(id)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -30,11 +34,7 @@ public sealed class User : AggregateRoot<UserId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public static User Create(
-        string firstName,
-        string lastName,
-        string email,
-        string password)
+    public static User Create(string firstName, string lastName, string email, string password)
     {
         return new(
             UserId.CreateUnique(),

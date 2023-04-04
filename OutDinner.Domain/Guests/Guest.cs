@@ -1,7 +1,7 @@
-using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Guests.ValueObjects;
+using OutDinner.Domain.Common.Models;
+using OutDinner.Domain.Guests.ValueObjects;
 
-namespace BuberDinner.Domain.Guests;
+namespace OutDinner.Domain.Guests;
 
 public sealed class Guest : AggregateRoot<GuestId>
 {

@@ -1,34 +1,48 @@
-using BuberDinner.Domain.Bills.ValueObjects;
-using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinners.Entities;
-using BuberDinner.Domain.Dinners.ValueObjects;
-using BuberDinner.Domain.Hosts.ValueObjects;
-using BuberDinner.Domain.Menus.ValueObjects;
+using OutDinner.Domain.Bills.ValueObjects;
+using OutDinner.Domain.Common.Models;
+using OutDinner.Domain.Dinners.Entities;
+using OutDinner.Domain.Dinners.ValueObjects;
+using OutDinner.Domain.Hosts.ValueObjects;
+using OutDinner.Domain.Menus.ValueObjects;
 
-namespace BuberDinner.Domain.Dinners;
+namespace OutDinner.Domain.Dinners;
 
 public sealed class Dinner : AggregateRoot<DinnerId>
 {
     private readonly List<Reservation> _reservations = new();
 
     public string Name { get; }
+
     public string Description { get; }
+
     public DateTime StartDateTime { get; }
+
     public DateTime EndDateTime { get; }
+
     public DateTime? StartedDateTime { get; private set; }
+
     public DateTime? EndedDateTime { get; private set; }
+
     public string Status { get; }
+
     public bool IsPublic { get; }
+
     public int MaxGuests { get; }
+
     public Price Price { get; }
+
     public HostId HostId { get; }
+
     public MenuId MenuId { get; }
+
     public string ImageUrl { get; }
+
     public Location Location { get; }
 
     public IReadOnlyList<Reservation> Reservations => _reservations.AsReadOnly();
 
     public DateTime CreatedDateTime { get; }
+
     public DateTime UpdatedDateTime { get; }
 
     private Dinner(
@@ -46,8 +60,7 @@ public sealed class Dinner : AggregateRoot<DinnerId>
         string imageUrl,
         Location location,
         DateTime createdDateTime,
-        DateTime updatedDateTime)
-        : base(id)
+        DateTime updatedDateTime) : base(id)
     {
         Name = name;
         Description = description;

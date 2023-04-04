@@ -1,25 +1,18 @@
-using BuberDinner.Domain.Common.Models;
+using OutDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.MenuReview.ValueObjects;
+namespace OutDinner.Domain.MenuReview.ValueObjects;
 
 public sealed class MenuReviewId : ValueObject
 {
     public Guid Value { get; }
 
-    private MenuReviewId(Guid value)
-    {
-        Value = value;
-    }
+    private MenuReviewId(Guid value) { Value = value; }
 
-    public static MenuReviewId CreateUnique()
-    {
-        return new MenuReviewId(Guid.NewGuid());
-    }
+    public static MenuReviewId CreateUnique() { return new MenuReviewId(Guid.NewGuid()); }
 
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
+    public override IEnumerable<object> GetEqualityComponents() { yield return Value; }
 
-    private MenuReviewId() { }
+    private MenuReviewId()
+    {
+    }
 }

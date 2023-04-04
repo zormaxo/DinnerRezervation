@@ -1,4 +1,4 @@
-namespace BuberDinner.Domain.Common.Models;
+namespace OutDinner.Domain.Common.Models;
 
 public abstract class ValueObject : IEquatable<ValueObject>
 {
@@ -33,8 +33,5 @@ public abstract class ValueObject : IEquatable<ValueObject>
                 .Aggregate((x, y) => x ^ y);
     }
 
-    public bool Equals(ValueObject? other)
-    {
-        return Equals((object?)other);
-    }
+    public bool Equals(ValueObject? other) { return Equals((object?)other); }
 }

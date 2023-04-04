@@ -1,10 +1,11 @@
-using BuberDinner.Domain.Common.Models;
+using OutDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Bills.ValueObjects;
+namespace OutDinner.Domain.Bills.ValueObjects;
 
 public sealed class Price : ValueObject
 {
     public decimal Amount { get; }
+
     public string Currency { get; }
 
     private Price(decimal amount, string currency)
@@ -13,10 +14,7 @@ public sealed class Price : ValueObject
         Currency = currency;
     }
 
-    public static Price CreateNew(decimal amount, string currency)
-    {
-        return new(amount, currency);
-    }
+    public static Price CreateNew(decimal amount, string currency) { return new(amount, currency); }
 
     public override IEnumerable<object> GetEqualityComponents()
     {

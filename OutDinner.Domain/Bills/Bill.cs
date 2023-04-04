@@ -1,28 +1,26 @@
-using BuberDinner.Domain.Bills.ValueObjects;
-using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinners.ValueObjects;
-using BuberDinner.Domain.Guests.ValueObjects;
-using BuberDinner.Domain.Hosts.ValueObjects;
+using OutDinner.Domain.Bills.ValueObjects;
+using OutDinner.Domain.Common.Models;
+using OutDinner.Domain.Dinners.ValueObjects;
+using OutDinner.Domain.Guests.ValueObjects;
+using OutDinner.Domain.Hosts.ValueObjects;
 
-namespace BuberDinner.Domain.Bills;
+namespace OutDinner.Domain.Bills;
 
 public sealed class Bill : AggregateRoot<BillId>
 {
     public DinnerId DinnerId { get; }
+
     public GuestId GuestId { get; }
+
     public HostId HostId { get; }
+
     public Price Price { get; }
+
     public DateTime CreatedDateTime { get; }
+
     public DateTime UpdatedDateTime { get; }
 
-    private Bill(
-        BillId id,
-        GuestId guestId,
-        HostId hostId,
-        Price price,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
-        : base(id)
+    private Bill(BillId id, GuestId guestId, HostId hostId, Price price, DateTime createdDateTime, DateTime updatedDateTime) : base(id)
     {
         GuestId = guestId;
         HostId = hostId;
@@ -31,10 +29,7 @@ public sealed class Bill : AggregateRoot<BillId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public static Bill Create(
-        GuestId guestId,
-        HostId hostId,
-        Price price)
+    public static Bill Create(GuestId guestId, HostId hostId, Price price)
     {
         return new(
             BillId.CreateUnique(),

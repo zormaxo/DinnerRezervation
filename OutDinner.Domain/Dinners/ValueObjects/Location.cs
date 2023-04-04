@@ -1,19 +1,18 @@
-using BuberDinner.Domain.Common.Models;
+using OutDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Dinners.ValueObjects;
+namespace OutDinner.Domain.Dinners.ValueObjects;
 
 public sealed class Location : ValueObject
 {
     public string Name { get; }
+
     public string Description { get; }
+
     public double Latitude { get; }
+
     public double Longitude { get; }
 
-    private Location(
-        string name,
-        string description,
-        double latitude,
-        double longitude)
+    private Location(string name, string description, double latitude, double longitude)
     {
         Name = name;
         Description = description;
@@ -21,11 +20,7 @@ public sealed class Location : ValueObject
         Longitude = longitude;
     }
 
-    public static Location CreateNew(
-        string name,
-        string description,
-        double latitude,
-        double longitude)
+    public static Location CreateNew(string name, string description, double latitude, double longitude)
     {
         return new(
             name,
