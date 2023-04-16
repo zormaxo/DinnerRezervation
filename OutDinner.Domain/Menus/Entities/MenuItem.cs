@@ -1,7 +1,7 @@
 using OutDinner.Domain.Common.Models;
 using OutDinner.Domain.Menus.ValueObjects;
 
-namespace OutDinner.Domain.Menus.Entites;
+namespace OutDinner.Domain.Menus.Entities;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {

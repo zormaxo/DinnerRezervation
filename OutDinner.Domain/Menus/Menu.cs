@@ -3,7 +3,7 @@ using OutDinner.Domain.Common.ValueObjects;
 using OutDinner.Domain.Dinners.ValueObjects;
 using OutDinner.Domain.Hosts.ValueObjects;
 using OutDinner.Domain.MenuReview.ValueObjects;
-using OutDinner.Domain.Menus.Entites;
+using OutDinner.Domain.Menus.Entities;
 using OutDinner.Domain.Menus.ValueObjects;
 
 namespace OutDinner.Domain.Menus;
