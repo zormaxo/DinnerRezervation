@@ -7,7 +7,7 @@ using OutDinner.Application.Common.Interfaces.Authentication;
 using OutDinner.Application.Common.Interfaces.Persistence;
 using OutDinner.Application.Common.Interfaces.Services;
 using OutDinner.Infrastructure.Authentication;
-using OutDinner.Infrastructure.Persistence;
+using OutDinner.Infrastructure.Persistence.Repositories;
 using OutDinner.Infrastructure.Services;
 using System.Text;
 
@@ -17,10 +17,19 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
     {
-        services.AddAuth(configuration);
+        services.AddAuth(configuration).AddPersistence();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IMenuRepository, MenuRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddPersistence(this IServiceCollection services)
+    {
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IMenuRepository, MenuRepository>();
 
         return services;
     }
