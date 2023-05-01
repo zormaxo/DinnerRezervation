@@ -9,6 +9,7 @@ using OutDinner.Application.Common.Interfaces.Persistence;
 using OutDinner.Application.Common.Interfaces.Services;
 using OutDinner.Infrastructure.Authentication;
 using OutDinner.Infrastructure.Persistence;
+using OutDinner.Infrastructure.Persistence.Interceptors;
 using OutDinner.Infrastructure.Persistence.Repositories;
 using OutDinner.Infrastructure.Services;
 using System.Text;
@@ -30,9 +31,10 @@ public static class DependencyInjection
 
     public static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        services.AddDbContext<BuberDinnerDbContext>(
+        services.AddDbContext<OutDinnerDbContext>(
             options => options.UseSqlServer(
                 "Server=localhost;Database=OutDinner;User Id=SA;Password=zormax123!;TrustServerCertificate=true"));
+        services.AddScoped<PublishDomainEventsInterceptor>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMenuRepository, MenuRepository>();
 

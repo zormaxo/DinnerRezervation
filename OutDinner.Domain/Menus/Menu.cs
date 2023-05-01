@@ -4,6 +4,7 @@ using OutDinner.Domain.Dinners.ValueObjects;
 using OutDinner.Domain.Hosts.ValueObjects;
 using OutDinner.Domain.MenuReview.ValueObjects;
 using OutDinner.Domain.Menus.Entities;
+using OutDinner.Domain.Menus.Events;
 using OutDinner.Domain.Menus.ValueObjects;
 
 namespace OutDinner.Domain.Menus;
@@ -38,7 +39,7 @@ public sealed class Menu : AggregateRoot<MenuId, Guid>
         string name,
         string description,
         AverageRating averageRating,
-        List<MenuSection>? sections) : base(menuId)
+        List<MenuSection> sections) : base(menuId)
     {
         HostId = hostId;
         Name = name;
@@ -47,15 +48,19 @@ public sealed class Menu : AggregateRoot<MenuId, Guid>
         AverageRating = averageRating;
     }
 
-    public static Menu Create(HostId hostId, string name, string description, List<MenuSection>? sections)
+    public static Menu Create(HostId hostId, string name, string description, List<MenuSection>? sections = null)
     {
-        return new(
+        var menu = new Menu(
             MenuId.CreateUnique(),
             hostId,
             name,
             description,
-            AverageRating.CreateNew(0),
-            sections);
+            AverageRating.CreateNew(),
+            sections ?? new());
+
+        menu.AddDomainEvent(new MenuCreated(menu));
+
+        return menu;
     }
 
 #pragma warning disable CS8618

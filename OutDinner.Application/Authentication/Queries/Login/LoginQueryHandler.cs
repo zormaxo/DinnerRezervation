@@ -4,7 +4,7 @@ using MediatR;
 using OutDinner.Application.Authentication.Common;
 using OutDinner.Application.Common.Interfaces.Authentication;
 using OutDinner.Application.Common.Interfaces.Persistence;
-using OutDinner.Domain.Common.Errors;
+using OutDinner.Domain.Common.DomainErrors;
 using OutDinner.Domain.Entities;
 
 namespace OutDinner.Application.Authentication.Queries.Login;

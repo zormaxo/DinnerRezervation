@@ -10,7 +10,7 @@ using OutDinner.Infrastructure.Persistence;
 
 namespace OutDinner.Infrastructure.Migrations
 {
-    [DbContext(typeof(BuberDinnerDbContext))]
+    [DbContext(typeof(OutDinnerDbContext))]
     partial class BuberDinnerDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

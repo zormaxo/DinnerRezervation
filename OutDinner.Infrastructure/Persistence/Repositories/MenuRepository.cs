@@ -5,9 +5,9 @@ namespace OutDinner.Infrastructure.Persistence.Repositories;
 
 public sealed class MenuRepository : IMenuRepository
 {
-    private readonly BuberDinnerDbContext _dbContext;
+    private readonly OutDinnerDbContext _dbContext;
 
-    public MenuRepository(BuberDinnerDbContext dbContext) { _dbContext = dbContext; }
+    public MenuRepository(OutDinnerDbContext dbContext) { _dbContext = dbContext; }
 
     public void Add(Menu menu)
     {

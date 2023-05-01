@@ -13,8 +13,4 @@ public sealed class MenuId : AggregateRootId<Guid>
     public static MenuId Create(Guid value) { return new(value); }
 
     public override IEnumerable<object> GetEqualityComponents() { yield return Value; }
-
-    private MenuId()
-    {
-    }
 }

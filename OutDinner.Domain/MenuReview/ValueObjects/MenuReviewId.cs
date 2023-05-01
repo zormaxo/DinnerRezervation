@@ -2,9 +2,9 @@ using OutDinner.Domain.Common.Models;
 
 namespace OutDinner.Domain.MenuReview.ValueObjects;
 
-public sealed class MenuReviewId : ValueObject
+public sealed class MenuReviewId : AggregateRootId<Guid>
 {
-    public Guid Value { get; }
+    public override Guid Value { get; protected set; }
 
     private MenuReviewId(Guid value) { Value = value; }
 

@@ -21,12 +21,13 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
             hostId: HostId.Create(request.HostId),
             name: request.Name,
             description: request.Description,
-            sections: request.Sections.ConvertAll(sections => MenuSection.Create(
-                name: sections.Name,
-                description: sections.Description,
-                items: sections.Items.ConvertAll(items => MenuItem.Create(
-                    name: items.Name,
-                    description: items.Description)))));
+            sections: request.Sections
+                .ConvertAll(
+                    sections => MenuSection.Create(
+                            name: sections.Name,
+                            description: sections.Description,
+                            items: sections.Items
+                                .ConvertAll(items => MenuItem.Create(name: items.Name, description: items.Description)))));
 
         _menuRepository.Add(menu);
 

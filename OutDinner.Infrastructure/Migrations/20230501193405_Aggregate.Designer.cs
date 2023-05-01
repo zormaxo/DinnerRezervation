@@ -11,7 +11,7 @@ using OutDinner.Infrastructure.Persistence;
 
 namespace OutDinner.Infrastructure.Migrations
 {
-    [DbContext(typeof(BuberDinnerDbContext))]
+    [DbContext(typeof(OutDinnerDbContext))]
     [Migration("20230501193405_Aggregate")]
     partial class Aggregate
     {
