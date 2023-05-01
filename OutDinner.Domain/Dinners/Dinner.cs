@@ -7,7 +7,7 @@ using OutDinner.Domain.Menus.ValueObjects;
 
 namespace OutDinner.Domain.Dinners;
 
-public sealed class Dinner : AggregateRoot<DinnerId>
+public sealed class Dinner : AggregateRoot<DinnerId, Guid>
 {
     private readonly List<Reservation> _reservations = new();
 

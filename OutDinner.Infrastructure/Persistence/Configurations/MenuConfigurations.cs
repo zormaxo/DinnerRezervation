@@ -26,9 +26,7 @@ internal sealed class MenuConfigurations : IEntityTypeConfiguration<Menu>
         builder
             .Property(m => m.Id)
             .ValueGeneratedNever()
-            .HasConversion(
-                id => id.Value,
-                value => MenuId.Create(value));
+            .HasConversion(id => id.Value, value => MenuId.Create(value));
 
         builder
             .Property(m => m.Name)
@@ -42,53 +40,43 @@ internal sealed class MenuConfigurations : IEntityTypeConfiguration<Menu>
 
         builder
             .Property(m => m.HostId)
-            .HasConversion(
-                id => id.Value,
-                value => HostId.Create(value));
+            .HasConversion(id => id.Value, value => HostId.Create(value));
     }
 
     private void ConfigureMenuSectionsTable(EntityTypeBuilder<Menu> builder)
     {
-        builder.OwnsMany(m => m.Sections, sectionBuilder =>
-        {
-            sectionBuilder.ToTable("MenuSections");
+        builder.OwnsMany(
+            m => m.Sections,
+            sectionBuilder =>
+            {
+                sectionBuilder.ToTable("MenuSections");
 
-            sectionBuilder
-                .WithOwner()
-                .HasForeignKey("MenuId");
+                sectionBuilder.WithOwner().HasForeignKey("MenuId");
 
-            sectionBuilder.HasKey("Id", "MenuId");
+                sectionBuilder.HasKey("Id", "MenuId");
 
-            sectionBuilder.Property(s => s.Id)
-                .HasColumnName("MenuSectionId")
-                .ValueGeneratedNever()
-                .HasConversion(
-                    id => id.Value,
-                    value => MenuSectionId.Create(value));
+                sectionBuilder.Property(s => s.Id)
+                    .HasColumnName("MenuSectionId")
+                    .ValueGeneratedNever()
+                    .HasConversion(id => id.Value, value => MenuSectionId.Create(value));
 
-            sectionBuilder
-                .Property(s => s.Name)
-                .HasMaxLength(100);
+                sectionBuilder.Property(s => s.Name).HasMaxLength(100);
 
-            sectionBuilder
-                .Property(s => s.Description)
-                .HasMaxLength(100);
+                sectionBuilder.Property(s => s.Description).HasMaxLength(100);
 
-            sectionBuilder.OwnsMany(
-                s => s.Items,
-                itemBuilder => ConfigureMenuItemsTable(itemBuilder));
+                sectionBuilder.OwnsMany(s => s.Items, itemBuilder => ConfigureMenuItemsTable(itemBuilder));
 
-            sectionBuilder
-                .Navigation(s => s.Items).Metadata
-                .SetField("_items");
-
-            sectionBuilder
+                sectionBuilder
                 .Navigation(s => s.Items)
-                .UsePropertyAccessMode(PropertyAccessMode.Field);
-        });
+                    .Metadata
+                    .SetField("_items");
 
-        builder.Metadata
-            .FindNavigation(nameof(Menu.Sections))!
+                sectionBuilder
+                .Navigation(s => s.Items)
+                    .UsePropertyAccessMode(PropertyAccessMode.Field);
+            });
+
+        builder.Metadata.FindNavigation(nameof(Menu.Sections))!
             .SetPropertyAccessMode(PropertyAccessMode.Field);
     }
 
@@ -106,9 +94,7 @@ internal sealed class MenuConfigurations : IEntityTypeConfiguration<Menu>
             .Property(i => i.Id)
             .HasColumnName("MenuItemId")
             .ValueGeneratedOnAdd()
-            .HasConversion(
-                id => id.Value,
-                value => MenuItemId.Create(value));
+            .HasConversion(id => id.Value, value => MenuItemId.Create(value));
 
         itemBuilder
             .Property(i => i.Name)
@@ -121,47 +107,49 @@ internal sealed class MenuConfigurations : IEntityTypeConfiguration<Menu>
 
     private void ConfigureMenuDinnerIdsTable(EntityTypeBuilder<Menu> builder)
     {
-        builder.OwnsMany(m => m.DinnerIds, dinnerBuilder =>
-        {
-            dinnerBuilder.ToTable("MenuDinnerIds");
+        builder.OwnsMany(
+            m => m.DinnerIds,
+            dinnerBuilder =>
+            {
+                dinnerBuilder.ToTable("MenuDinnerIds");
 
-            dinnerBuilder
+                dinnerBuilder
                 .WithOwner()
-                .HasForeignKey("MenuId");
+                    .HasForeignKey("MenuId");
 
-            dinnerBuilder.HasKey("Id");
+                dinnerBuilder.HasKey("Id");
 
-            dinnerBuilder
+                dinnerBuilder
                 .Property(d => d.Value)
-                .HasColumnName("DinnerId")
-                .ValueGeneratedNever();
-        });
+                    .HasColumnName("DinnerId")
+                    .ValueGeneratedNever();
+            });
 
-        builder.Metadata
-            .FindNavigation(nameof(Menu.DinnerIds))!
+        builder.Metadata.FindNavigation(nameof(Menu.DinnerIds))!
             .SetPropertyAccessMode(PropertyAccessMode.Field);
     }
 
     private void ConfigureMenuReviewIdsTable(EntityTypeBuilder<Menu> builder)
     {
-        builder.OwnsMany(m => m.MenuReviewIds, reviewBuilder =>
-        {
-            reviewBuilder.ToTable("MenuReviewIds");
+        builder.OwnsMany(
+            m => m.MenuReviewIds,
+            reviewBuilder =>
+            {
+                reviewBuilder.ToTable("MenuReviewIds");
 
-            reviewBuilder
+                reviewBuilder
                 .WithOwner()
-                .HasForeignKey("MenuId");
+                    .HasForeignKey("MenuId");
 
-            reviewBuilder.HasKey("Id");
+                reviewBuilder.HasKey("Id");
 
-            reviewBuilder
+                reviewBuilder
                 .Property(r => r.Value)
-                .HasColumnName("ReviewId")
-                .ValueGeneratedNever();
-        });
+                    .HasColumnName("ReviewId")
+                    .ValueGeneratedNever();
+            });
 
-        builder.Metadata
-            .FindNavigation(nameof(Menu.MenuReviewIds))!
+        builder.Metadata.FindNavigation(nameof(Menu.MenuReviewIds))!
             .SetPropertyAccessMode(PropertyAccessMode.Field);
     }
 }

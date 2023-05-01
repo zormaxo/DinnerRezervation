@@ -3,7 +3,7 @@ using OutDinner.Domain.Users.ValueObjects;
 
 namespace OutDinner.Domain.Users;
 
-public sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<UserId, Guid>
 {
     public string FirstName { get; private set; }
 

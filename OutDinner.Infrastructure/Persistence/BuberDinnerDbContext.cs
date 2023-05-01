@@ -13,8 +13,7 @@ public sealed class BuberDinnerDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder
-            .ApplyConfigurationsFromAssembly(typeof(BuberDinnerDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(BuberDinnerDbContext).Assembly);
 
         base.OnModelCreating(modelBuilder);
     }

@@ -8,7 +8,7 @@ using OutDinner.Domain.Menus.ValueObjects;
 
 namespace OutDinner.Domain.MenuReview;
 
-public sealed class MenuReview : AggregateRoot<MenuReviewId>
+public sealed class MenuReview : AggregateRoot<MenuReviewId, Guid>
 {
     public Rating Rating { get; }
 

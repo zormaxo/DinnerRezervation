@@ -6,7 +6,7 @@ using OutDinner.Domain.Hosts.ValueObjects;
 
 namespace OutDinner.Domain.Bills;
 
-public sealed class Bill : AggregateRoot<BillId>
+public sealed class Bill : AggregateRoot<BillId, Guid>
 {
     public DinnerId DinnerId { get; }
 
