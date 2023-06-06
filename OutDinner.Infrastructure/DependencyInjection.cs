@@ -31,9 +31,9 @@ public static class DependencyInjection
 
     public static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        services.AddDbContext<OutDinnerDbContext>(
-            options => options.UseSqlServer(
-                "Server=localhost;Database=OutDinner;User Id=SA;Password=zormax123!;TrustServerCertificate=true"));
+        //var connString = "Server=localhost;Database=OutDinner;User Id=SA;Password=zormax123!;TrustServerCertificate=true";
+        var connString = "Server=localhost;Database=OutDinner;Trusted_Connection=True;TrustServerCertificate=True";
+        services.AddDbContext<OutDinnerDbContext>(options => options.UseSqlServer(connString));
         services.AddScoped<PublishDomainEventsInterceptor>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMenuRepository, MenuRepository>();

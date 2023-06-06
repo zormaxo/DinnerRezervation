@@ -13,3 +13,4 @@ docker pull mcr.microsoft.com/mssql/server:2022-latest
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=zormax123!" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 
 dotnet ef database update --project .\OutDinner.Infrastructure --startup-project .\OutDinner.Api --connection "Server=localhost;Database=OutDinner;User Id=sa;Password=zormax123!;Encrypt=false"
+dotnet ef database update --project .\OutDinner.Infrastructure --startup-project .\OutDinner.Api --connection "Server=localhost;Database=OutDinner;Trusted_Connection=True;TrustServerCertificate=True"
